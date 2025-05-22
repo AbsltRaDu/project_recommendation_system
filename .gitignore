@@ -1,0 +1,3 @@
+recSystem
+*.csv
+!courses_site/Courses.csv
