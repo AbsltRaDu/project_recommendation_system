@@ -1,2 +1,3 @@
 recSystem
-.csv
+*.csv
+!courses_site/Courses.csv
