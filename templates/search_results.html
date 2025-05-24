@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Смотри, что нашли
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2>Результаты поиска по запросу: "{{ query }}"</h2>
+        {% if results %}
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                {% for post in results %}
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="{{ post.Picture }}" class="card-img-top" alt="{{ post.Name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.Name }}</h5>
+                                <p class="card-text">{{ post.Summary }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="mt-3">Ничего не найдено.</p>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление записей
+{% endblock %}
+
+{% block content %}
+<h1> Добавление записи </h1> <br>
+
+<form method="post" class="form-control">
+    <br>
+    <input type="text" name="name" placeholder="Введите название курса" class="form-control"><br>
+
+    <input type="text" name="authors" placeholder="Введите автора" class="form-control"><br>
+    <input type="text" name="summary" placeholder="Введите описание" class="form-control"><br>
+    <input type="number" name="rating" placeholder="Введите оценку курса" class="form-control"><br>
+    <input type="number" name="learner" placeholder="Введите кол-во учеников" class="form-control"><br>
+    <input type="text" name="picture" placeholder="Ссылка на картинку" class="form-control"><br>
+    <input type="text" name="link" placeholder="Ссылка на курс" class="form-control"><br>
+    <input type="text" name="category" placeholder="Категория" class="form-control"><br>
+    <button class="btn btn-success" type="submit">Добавить</button>
+
+</form>
+
+{% endblock %}

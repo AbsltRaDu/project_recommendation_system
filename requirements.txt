@@ -1,0 +1,9 @@
+flask
+flask_sqlalchemy
+flask_migrate
+werkzeug
+datetime
+flask_login
+pickle
+numpy
+scipy

@@ -1,4 +1,1 @@
-recSystem
-*.csv
-.python-version
-!courses_site/Courses.csv
+venv

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добро пожаловать
+{% endblock %}
+
+{% block content %}
+<div class="container mt-2" style="max-width: 600px;">
+    <h2 class="text-center text-dark fw-bold mb-4">Добро пожаловать, {{ user.username }}!</h2>
+
+    <div class="card p-4 bg-body rounded" style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="btn btn-outline-primary btn-sm disabled">Email</span>
+                <span>{{ user.email }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span class="btn btn-outline-primary btn-sm disabled">Предпочтения</span>
+                <span>{{ user.preference }}</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="text-center mt-3">
+        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger w-100"
+           style="box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);">
+            Выйти
+        </a>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="container mt-2" style="max-width: 600px;">
+    <h2 class="text-center text-dark fw-bold mb-4">Вы это видели</h2>
+
+</div><br>
+
+
+
+<div class="container-fluid d-flex justify-content-center">
+    <div style="max-width: 2500px; width: 100%;">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            {% for post in view_posts %}
+            <div class="col" style="min-width: 380px;">
+                <a href="{{ url_for('go_to_course_rec', course_id=post.id) }}" class="text-decoration-none text-white">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg border-0">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                            <div class="d-flex align-items-start mb-1">
+                                <img src="{{ post.Picture }}" alt="Picture" width="100" height="100" class="me-4 rounded">
+                                <div class="d-flex flex-column justify-content-start">
+                                    <h3 class="fw-bold mb-2" style="font-size: 1rem; overflow-wrap: anywhere; line-height: 1.2;">
+                                        {{ post.Name }}
+                                    </h3>
+                                    <ul class="list-unstyled mb-2">
+                                        <li><small>{{ post.Authors }}</small></li>
+                                    </ul>
+                                    <ul class="d-flex list-unstyled gap-3">
+                                        <li class="d-flex align-items-center"><small>👌🏻 {{ post.Rating }}</small></li>
+                                        <li class="d-flex align-items-center"><small>👁️ {{ post.Learners }}</small></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.875rem; word-break: break-word; line-height: 1.4;">
+                                {{ post.Summary }}
+                            </p>
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+
+            </div>
+
+
+            {% endfor %}
+
+        </div>
+        <br><br>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}
