@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b181ad09-3dca-4438-b340-f77b0520d615" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/Courses.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/for_start_app.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/init_db.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/static/img/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/courses_site/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/modeling/EDA.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/modeling/lightfm_model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/modeling/Проверка модели.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project_recommendation_system/requrements.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/project_recommendation_system" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2x5bXnWl0hV0ChWVwERXOlJSo9b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Projects/NewFlusk",
+    "run.code.analysis.last.selected.profile": "aDefault"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\NewFlusk\venv" />
+      <recent name="C:\Projects\NewFlusk\venv\Lib" />
+      <recent name="C:\Projects\NewFlusk\static\image" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="NewFlusk" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-880ecab49056-36ea0e71a18c-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.25410.122" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b181ad09-3dca-4438-b340-f77b0520d615" name="Changes" comment="" />
+      <created>1747230925032</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747230925032</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>138</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
