@@ -1,0 +1,46 @@
+/* HEADER */
+header {
+    position: sticky;
+    top:0;
+    z-index: 1000;
+    background: #fff;
+}
+
+.header__img {
+    height: 54px;
+    width: 54px;
+}
+
+/* BODY */
+body {
+    margin = 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+header, footer {
+    padding: 75px;
+    background-color: #fff;
+}
+
+.page {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 30px 30px;
+
+    flex: 1 1 auto;
+
+    max-width: 1200px;       /* Ширина контента */
+    box-sizing: border-box;  /* Чтобы padding не выходил за границы */
+}
+

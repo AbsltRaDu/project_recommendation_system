@@ -1,0 +1,193 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block content %}
+
+{% if clicked_posts %}
+<br>
+<div class="container-fluid d-flex justify-content">
+    <h1>Вы это видели?</h1>
+</div><br>
+
+<div class="container-fluid d-flex justify-content-center">
+    <div style="max-width: 2500px; width: 100%;">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            {% for post in clicked_posts %}
+            <div class="col" style="min-width: 380px;">
+                <a href="{{ url_for('go_to_course_rec', course_id=post.id) }}" class="text-decoration-none text-white">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg border-0">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                            <div class="d-flex align-items-start mb-1">
+                                <img src="{{ post.Picture }}" alt="Picture" width="100" height="100" class="me-4 rounded">
+                                <div class="d-flex flex-column justify-content-start">
+                                    <h3 class="fw-bold mb-2" style="font-size: 1rem; overflow-wrap: anywhere; line-height: 1.2;">
+                                        {{ post.Name }}
+                                    </h3>
+                                    <ul class="list-unstyled mb-2">
+                                        <li><small>{{ post.Authors }}</small></li>
+                                    </ul>
+                                    <ul class="d-flex list-unstyled gap-3">
+                                        <li class="d-flex align-items-center"><small>👌🏻 {{ post.Rating }}</small></li>
+                                        <li class="d-flex align-items-center"><small>👁️ {{ post.Learners }}</small></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.875rem; word-break: break-word; line-height: 1.4;">
+                                {{ post.Summary }}
+                            </p>
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <div class="container-fluid mt-2" id="action-block-{{ post.id }}">
+                        <div class="d-flex w-100 gap-2">
+                            <button class="btn btn-outline-success w-50 rounded-3 shadow-sm" onclick="markYes({{ post.id }})">Да</button>
+                            <button class="btn btn-outline-danger w-50 rounded-3 shadow-sm" onclick="markNo({{ post.id }})">Нет</button>
+                        </div>
+                </div>
+
+            </div>
+
+            <script>
+                function markNo(postId) {
+                    fetch(`/click/remove/${postId}`, {
+                        method: 'POST'
+                    }).then(() => {
+                        document.getElementById(`action-block-${postId}`).innerHTML = '<button class="btn btn-outline-success w-100 rounded-3 shadow-sm">Спасибо</button>';
+                    });
+                }
+
+                function markYes(postId) {
+                    document.getElementById(`action-block-${postId}`).innerHTML = `
+                        <div class="d-flex w-100 gap-2">
+                            <button class="btn btn-outline-success w-50 rounded-3 shadow-sm" onclick="rateView(${postId}, 1)">Лайк</button>
+                            <button class="btn btn-outline-danger w-50 rounded-3 shadow-sm" onclick="rateView(${postId}, -1)">Дизлайк</button>
+                        </div>
+                    `;
+                }
+
+                function rateView(postId, rating) {
+                    fetch(`/view/save/${postId}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({rating: rating})
+                    }).then(() => {
+                        document.getElementById(`action-block-${postId}`).innerHTML = '<button class="btn btn-outline-success w-100 rounded-3 shadow-sm">Спасибо</button>';
+                    });
+                }
+                </script>
+
+            {% endfor %}
+
+        </div>
+        <br><br>
+    </div>
+</div>
+<br>
+<br>
+
+
+
+{% endif %}
+
+
+
+
+<div class="container-fluid d-flex justify-content">
+    <h1>Учи! Не ищи!</h1>
+</div><br>
+
+<div class="container-fluid d-flex justify-content-center">
+    <div style="max-width: 2500px; width: 100%;">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            {% for rec in recommends %}
+
+            <div class="col" style="min-width: 380px;">
+                <a href="{{ url_for('go_to_course_rec', course_id=rec.post.id) }}" class="text-decoration-none text-white">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg border-0">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                            <div class="d-flex align-items-start mb-1">
+                                <img src="{{ rec.post.Picture }}" alt="Picture" width="100" height="100" class="me-4 rounded">
+                                <div class="d-flex flex-column justify-content-start">
+                                    <h3 class="fw-bold mb-2" style="font-size: 1rem; overflow-wrap: anywhere; line-height: 1.2;">
+                                        {{ rec.post.Name }}
+                                    </h3>
+                                    <ul class="list-unstyled mb-2">
+                                        <li><small>{{ rec.post.Authors }}</small></li>
+                                    </ul>
+                                    <ul class="d-flex list-unstyled gap-3">
+                                        <li class="d-flex align-items-center"><small>👌🏻 {{ rec.post.Rating }}</small></li>
+                                        <li class="d-flex align-items-center"><small>👁️ {{ rec.post.Learners }}</small></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.875rem; word-break: break-word; line-height: 1.4;">
+                                {{ rec.post.Summary }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<div class="container-fluid d-flex justify-content">
+    <h1>Смотри, что попало в щупальцы cпрута</h1>
+</div>
+
+<br>
+
+<div class="container-fluid d-flex justify-content-center">
+    <div style="max-width: 2500px; width: 100%;">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            {% for post in posts %}
+            <div class="col" style="min-width: 380px;">
+                <a href="{{ url_for('go_to_course', course_id=post.id) }}" class="text-decoration-none text-white">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-light rounded-4 shadow-lg border-0">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                            <div class="d-flex align-items-start mb-1">
+                                <img src="{{ post.Picture }}" alt="Picture" width="100" height="100" class="me-4 rounded">
+                                <div class="d-flex flex-column justify-content-start">
+                                    <h3 class="fw-bold mb-2" style="font-size: 1rem; overflow-wrap: anywhere; line-height: 1.2;">
+                                        {{ post.Name }}
+                                    </h3>
+                                    <ul class="list-unstyled mb-2">
+                                        <li><small>{{ post.Authors }}</small></li>
+                                    </ul>
+                                    <ul class="d-flex list-unstyled gap-3">
+                                        <li class="d-flex align-items-center"><small>👌🏻 {{ post.Rating }}</small></li>
+                                        <li class="d-flex align-items-center"><small>👁️ {{ post.Learners }}</small></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.875rem; word-break: break-word; line-height: 1.4;">
+                                {{ post.Summary }}
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
